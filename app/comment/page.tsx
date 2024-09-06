@@ -29,6 +29,13 @@ const CommentPage = () => {
   const [postId, setPostId] = useState<number | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
   const [posts, setPosts] = useState<Post[]>([]);
+  
+  useEffect(() => {
+    const storedUserId = sessionStorage.getItem('userId');
+    if (storedUserId) {
+      setUserId(Number(storedUserId));
+    }
+  }, []);
 
   useEffect(() => {
     const storedPostId = sessionStorage.getItem('postId');
@@ -95,9 +102,7 @@ const CommentPage = () => {
       fetchComments();
     }
   }, [postId]);
-  console.log('postId:', postId);
-  console.log('userId:', loggedUserId);
-  console.log('content:', newComment);
+
   const handleAddComment = async () => {
     try {
       
