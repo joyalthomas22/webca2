@@ -95,12 +95,12 @@ const CommentPage = () => {
       fetchComments();
     }
   }, [postId]);
-
+  console.log('postId:', postId);
+  console.log('userId:', loggedUserId);
+  console.log('content:', newComment);
   const handleAddComment = async () => {
     try {
-      console.log('postId:', postId);
-console.log('userId:', loggedUserId);
-console.log('content:', newComment);
+      
       const response = await fetch('/api/commenthandler', {
         method: 'POST',
         headers: {
