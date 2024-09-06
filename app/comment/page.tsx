@@ -103,7 +103,7 @@ const CommentPage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ postId, userId: loggedUserId, content: newComment }),
+        body: JSON.stringify({ postId: postId, userId: loggedUserId, content: newComment }),
       });
 
       if (response.ok) {
